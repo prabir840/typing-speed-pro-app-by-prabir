@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#4CAF50">
+
+
+    <title>Speed Typer Pro</title>
+  </head>
+  <body>
+    <!-- Home button -->
+    <div class="home-button" id="home-button" title="Go Home">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </div>
+
+    <!-- Theme toggle -->
+    <div class="theme-toggle" id="theme-toggle">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        id="theme-icon"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </div>
+
+    <!-- Sound control -->
+    <div class="sound-control" id="sound-control" title="Toggle Sound">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      </svg>
+    </div>
+
+    <div class="container">
+      <header>
+        <h1>Speed Typer Pro</h1>
+        <p class="subtitle">Test and improve your typing speed and accuracy</p>
+      </header>
+
+      <div class="tabs">
+        <div class="tabs-header">
+          <div class="tabs-list" role="tablist">
+            <button
+              class="tab-trigger"
+              role="tab"
+              aria-selected="true"
+              id="tab-easy"
+              data-tab="easy"
+            >
+              Easy
+            </button>
+            <button
+              class="tab-trigger"
+              role="tab"
+              aria-selected="false"
+              id="tab-medium"
+              data-tab="medium"
+            >
+              Medium
+            </button>
+            <button
+              class="tab-trigger"
+              role="tab"
+              aria-selected="false"
+              id="tab-hard"
+              data-tab="hard"
+            >
+              Hard
+            </button>
+          </div>
+
+          <div class="high-score">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#f59e0b"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon"
+            >
+              <path d="M8 21h8"></path>
+              <path d="M12 21v-4"></path>
+              <path d="M12 3v4"></path>
+              <path d="M15.5 7.5l2-2"></path>
+              <path d="M8.5 7.5l-2-2"></path>
+              <path d="M20.5 12l-3-1"></path>
+              <path d="M3.5 12l3-1"></path>
+              <path
+                d="m13.25 14.2-.835-.836a2 2 0 0 0-2.817 0l-.834.835a2 2 0 0 0 0 2.816l.834.836a2 2 0 0 0 2.817 0l.835-.836a2 2 0 0 0 0-2.816Z"
+              ></path>
+              <path
+                d="m13.47 9.4-.834-.835a2 2 0 0 1 0-2.817l.835-.835a2 2 0 0 1 2.816 0l.834.835a2 2 0 0 1 0 2.817l-.835.834a2 2 0 0 1-2.816 0Z"
+              ></path>
+              <path
+                d="m8.19 14.025.835-.834a2 2 0 0 0 0-2.817l-.835-.835a2 2 0 0 0-2.816 0l-.835.835a2 2 0 0 0 0 2.816l.835.835a2 2 0 0 0 2.816 0Z"
+              ></path>
+            </svg>
+            <span>High Score: <span id="high-score">0</span></span>
+          </div>
+        </div>
+
+        <div class="tab-content" data-state="active" data-tab="easy">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Easy Mode</h3>
+                <p class="card-description">
+                  Short, simple words with plenty of time.
+                </p>
+              </div>
+              <span class="badge">3-4 Letter Words</span>
+            </div>
+            <div class="card-content" id="easy-intro">
+              <p class="text-center text-sm text-muted">
+                Press Start to begin!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" data-tab="medium">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Medium Mode</h3>
+                <p class="card-description">
+                  Medium length words with reasonable timing.
+                </p>
+              </div>
+              <span class="badge">5-8 Letter Words</span>
+            </div>
+            <div class="card-content" id="medium-intro">
+              <p class="text-center text-sm text-muted">
+                Press Start to begin!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" data-tab="hard">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Hard Mode</h3>
+                <p class="card-description">
+                  Complex, longer words that will test your typing skills.
+                </p>
+              </div>
+              <span class="badge">9+ Letter Words</span>
+            </div>
+            <div class="card-content" id="hard-intro">
+              <p class="text-center text-sm text-muted">
+                Press Start to begin!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Area -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Typing Area</h3>
+          <div id="timer-container" style="display: none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#f59e0b"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span id="time-left">5.0s</span>
+          </div>
+        </div>
+
+        <div class="card-content" id="game-content">
+          <div id="game-area" style="display: none" class="typing-container">
+            <div class="mb-6">
+              <div class="progress">
+                <div
+                  id="progress-bar"
+                  class="progress-indicator green"
+                  style="width: 100%"
+                ></div>
+              </div>
+
+              <div class="word-display" id="current-word"></div>
+
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="word-input"
+                  class="word-input"
+                  placeholder="Type the word here..."
+                  autocomplete="off"
+                />
+
+                <div
+                  id="combo-display"
+                  class="combo-badge"
+                  style="display: none"
+                >
+                  <span class="combo-text">Combo</span>
+                  <span id="combo-count" class="combo-count">x2</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Panel -->
+            <div class="stats-panel">
+              <div class="stat-card stat-score">
+                <p class="stat-label">Score</p>
+                <p id="score" class="stat-value">0</p>
+              </div>
+
+              <div class="stat-card stat-wpm">
+                <p class="stat-label">WPM</p>
+                <p id="wpm" class="stat-value">0</p>
+              </div>
+
+              <div class="stat-card stat-accuracy">
+                <p class="stat-label">Accuracy</p>
+                <p id="accuracy" class="stat-value">100%</p>
+              </div>
+
+              <div class="stat-card stat-words">
+                <p class="stat-label">Words</p>
+                <p id="words-count" class="stat-value">0/0</p>
+              </div>
+            </div>
+
+            <!-- Pause overlay -->
+            <div id="pause-overlay" class="pause-overlay">
+              <h2>Game Paused</h2>
+              <button id="resume-button" class="btn btn-primary btn-lg">
+                Resume Game
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="game-over" class="game-over" style="display: none">
+            <h3>Game Over!</h3>
+            <div class="results-grid">
+              <div class="results-card">
+                <h4>Your Results</h4>
+                <div class="results-item">
+                  <div class="results-label">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#f59e0b"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon"
+                    >
+                      <path d="M8 21h8"></path>
+                      <path d="M12 21v-4"></path>
+                      <path d="M12 3v4"></path>
+                      <path d="M15.5 7.5l2-2"></path>
+                      <path d="M8.5 7.5l-2-2"></path>
+                      <path d="M20.5 12l-3-1"></path>
+                      <path d="M3.5 12l3-1"></path>
+                      <path
+                        d="m13.25 14.2-.835-.836a2 2 0 0 0-2.817 0l-.834.835a2 2 0 0 0 0 2.816l.834.836a2 2 0 0 0 2.817 0l.835-.836a2 2 0 0 0 0-2.816Z"
+                      ></path>
+                      <path
+                        d="m13.47 9.4-.834-.835a2 2 0 0 1 0-2.817l.835-.835a2 2 0 0 1 2.816 0l.834.835a2 2 0 0 1 0 2.817l-.835.834a2 2 0 0 1-2.816 0Z"
+                      ></path>
+                      <path
+                        d="m8.19 14.025.835-.834a2 2 0 0 0 0-2.817l-.835-.835a2 2 0 0 0-2.816 0l-.835.835a2 2 0 0 0 0 2.816l.835.835a2 2 0 0 0 2.816 0Z"
+                      ></path>
+                    </svg>
+                    Final Score
+                  </div>
+                  <span id="final-score" class="results-value">0</span>
+                </div>
+                <div class="results-item">
+                  <div class="results-label">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#3b82f6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                    Words Per Minute
+                  </div>
+                  <span id="final-wpm" class="results-value">0</span>
+                </div>
+                <div class="results-item">
+                  <div class="results-label">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#22c55e"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon"
+                    >
+                      <path
+                        d="M13 19h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2"
+                      ></path>
+                      <path d="M13 22v-3"></path>
+                      <path
+                        d="M6 19h3a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12c0 1 .6 3 3 3Z"
+                      ></path>
+                    </svg>
+                    Accuracy
+                  </div>
+                  <span id="final-accuracy" class="results-value">0%</span>
+                </div>
+              </div>
+
+              <div class="achievements-card">
+                <h4>Achievements</h4>
+                <div class="results-item">
+                  <div class="results-label">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#9333ea"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon"
+                    >
+                      <rect
+                        x="3"
+                        y="8"
+                        width="18"
+                        height="12"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path d="M7 8v0a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v0"></path>
+                    </svg>
+                    Max Combo
+                  </div>
+                  <span id="max-combo" class="results-value">0x</span>
+                </div>
+                <div class="results-item">
+                  <div class="results-label">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#8b5cf6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon"
+                    >
+                      <circle cx="12" cy="8" r="7"></circle>
+                      <path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"></path>
+                    </svg>
+                    Words Completed
+                  </div>
+                  <span id="correct-words" class="results-value">0</span>
+                </div>
+                <div
+                  id="new-high-score"
+                  class="new-high-score"
+                  style="display: none"
+                >
+                  <span class="results-label">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon"
+                    >
+                      <path d="M8 21h8"></path>
+                      <path d="M12 21v-4"></path>
+                      <path d="M12 3v4"></path>
+                      <path d="M15.5 7.5l2-2"></path>
+                      <path d="M8.5 7.5l-2-2"></path>
+                      <path d="M20.5 12l-3-1"></path>
+                      <path d="M3.5 12l3-1"></path>
+                      <path
+                        d="m13.25 14.2-.835-.836a2 2 0 0 0-2.817 0l-.834.835a2 2 0 0 0 0 2.816l.834.836a2 2 0 0 0 2.817 0l.835-.836a2 2 0 0 0 0-2.816Z"
+                      ></path>
+                      <path
+                        d="m13.47 9.4-.834-.835a2 2 0 0 1 0-2.817l.835-.835a2 2 0 0 1 2.816 0l.834.835a2 2 0 0 1 0 2.817l-.835.834a2 2 0 0 1-2.816 0Z"
+                      ></path>
+                      <path
+                        d="m8.19 14.025.835-.834a2 2 0 0 0 0-2.817l-.835-.835a2 2 0 0 0-2.816 0l-.835.835a2 2 0 0 0 0 2.816l.835.835a2 2 0 0 0 2.816 0Z"
+                      ></path>
+                    </svg>
+                    New High Score!
+                  </span>
+                  <span id="new-high-score-value" class="results-value">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="intro-screen" class="intro-screen">
+            <div class="intro-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M15 10l-3 3-3-3"></path>
+              </svg>
+            </div>
+            <p class="text-xl mb-4">Ready to test your typing speed?</p>
+            <p class="text-muted mb-6">
+              Type the words as they appear as quickly and accurately as
+              possible.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button id="start-button" class="btn btn-primary btn-lg">
+            Start Game
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+
+          <button
+            id="pause-button"
+            class="btn btn-secondary btn-lg"
+            style="display: none"
+          >
+            Pause Game
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          </button>
+
+          <button
+            id="end-button"
+            class="btn btn-outline btn-lg"
+            style="display: none"
+          >
+            End Game
+          </button>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Practice regularly to improve your typing speed and accuracy!</p>
+        <p>
+          <span class="font-medium">Easy:</span> 3-4 letter words |
+          <span class="font-medium">Medium:</span> 5-8 letter words |
+          <span class="font-medium">Hard:</span> 9+ letter words
+        </p>
+      </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <!-- Audio elements -->
+    <audio id="correct-sound" src="correct.wav" preload="auto"></audio>
+    <audio id="wrong-sound" src="wrong.wav" preload="auto"></audio>
+    <audio id="game-over-sound" src="gameover-86548.mp3" preload="auto"></audio>
+    <audio id="combo-sound" src="combo-sound.mp3" preload="auto"></audio>
+    <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+
+    <script src="script.js">
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function (registration) {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function (err) {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+  }
+</script>
+
+  </body>
+</html>
